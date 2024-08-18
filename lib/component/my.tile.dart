@@ -29,9 +29,19 @@ class MyTile extends StatelessWidget {
             name,
             style: const TextStyle(fontSize: 18, color: Colors.white),
           ),
-          Text(
-            price,
-            style: const TextStyle(fontSize: 18, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: FilledButton(
+                onPressed: () {},
+                style: FilledButton.styleFrom(backgroundColor: color),
+                child: Text(
+                  "\$$price",
+                  style: const TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ),
+            ),
           ),
         ],
       ),

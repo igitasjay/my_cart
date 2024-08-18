@@ -35,11 +35,12 @@ class HomePage extends StatelessWidget {
             ),
             const Divider(),
             const Text("Sweet items"),
+            const SizedBox(height: 12),
             Expanded(
               child: Consumer<CartModel>(
                 builder: (context, value, child) {
                   return GridView.builder(
-                    itemCount: 4,
+                    itemCount: value.shopItems.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
