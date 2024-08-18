@@ -2,17 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_cart/component/my.tile.dart';
 import 'package:my_cart/model/cart.model.dart';
+import 'package:my_cart/pages/my.cart.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const CartPage(),
+            ),
+          );
+        },
         backgroundColor: Colors.black,
         child: const Icon(Icons.shopping_bag),
       ),
@@ -54,6 +66,10 @@ class HomePage extends StatelessWidget {
                         price: value.shopItems[index][1],
                         imagePath: value.shopItems[index][2],
                         color: value.shopItems[index][3],
+                        onPressed: () => Provider.of<CartModel>(
+                          context,
+                          listen: false,
+                        ).addItem(index),
                       );
                     },
                   );

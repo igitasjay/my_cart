@@ -24,7 +24,7 @@ class IntroPage extends StatelessWidget {
                 ),
               ),
               const Text(
-                "Shop til' yo dropppppp...",
+                "Shop til' you dropppppp...",
                 style: TextStyle(
                   color: Colors.grey,
                 ),

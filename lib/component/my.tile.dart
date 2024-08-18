@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class MyTile extends StatelessWidget {
   final String name, imagePath, price;
   final Color color;
+  final Function()? onPressed;
   const MyTile({
     super.key,
     required this.name,
     required this.price,
     required this.color,
     required this.imagePath,
+    this.onPressed,
   });
 
   @override
@@ -34,7 +36,7 @@ class MyTile extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               child: FilledButton(
-                onPressed: () {},
+                onPressed: onPressed,
                 style: FilledButton.styleFrom(backgroundColor: color),
                 child: Text(
                   "\$$price",
